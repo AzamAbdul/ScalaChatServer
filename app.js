@@ -16,7 +16,7 @@ app.post('/registerClient', function(req,res) {
 });
 
 app.get('/fetchBoards', function(req,res) {
-  console.log(req.params);
+  console.log(req.param('id'));
 
 });
 
