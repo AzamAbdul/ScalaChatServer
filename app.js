@@ -86,7 +86,12 @@ app.post('/addBoard', function(req,res) {
 
 		mc.connect(url, function(err,db) {
 			db.collection('mhacks').insert({"Geo":{ "type": "Point", "coordinates": [board_lat, board_long]},"comments":[],"radius":board_radius, 
-				"title": board_title, "desc": board_desc , "users": []})
+				"title": board_title, "desc": board_desc , "users": []}, 
+				function(err,records){
+					
+					
+					res.json(records["ops"][0]);
+				})
 	
 		});
 	});
